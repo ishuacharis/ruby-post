@@ -2,17 +2,23 @@
 They will automatically be included in application.css.
 You can use Sass (SCSS) here: https://sass-lang.com/ */
 
+/* all posts  */
 .posts{
     display: grid;
     grid-template-columns: 1fr;
 }
 
 .post{
-    margin-top: 1.5rem
+    margin-top: 1.5em;
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.3);
+    border-radius: 5px;
+    padding: 0.5em 1.5em;
 }
 
 .post-header{
     font-size: 2em;
+    display: flex;
+    justify-content: space-between;
 }
 .post-content{
     font-size: 1.8em;
@@ -22,3 +28,46 @@ You can use Sass (SCSS) here: https://sass-lang.com/ */
     display: flex;
 }
 
+/* post forms */
+
+.new-post{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.field{
+    margin-top: 1.5em;
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.3);
+    border-radius: 5px;
+    padding: 0.35em;
+}
+.label {
+    position: relative;
+    display: block;
+    margin-bottom: 0.5em;
+    font-size: 1.8rem;
+    width: 100%;
+}
+.input{
+    width: 100%;
+}
+.no-shadow{
+    box-shadow: none;
+ }
+ .text-center{
+     text-align: center;
+ }
+ .icon{
+     cursor: pointer;
+ }
+ 
+ .btn{
+    display: inline-block;
+    background-color: blue;
+    padding: 5px 30px;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-size: 3em;
+    cursor: pointer;
+}

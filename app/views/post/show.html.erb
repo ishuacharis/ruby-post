@@ -1,4 +1,13 @@
-
-<p>
-    Post show
-</p>
+<div class="post">
+    <div class="post-header">
+        <span class="author">Olawale</span>
+        <%= link_to edit_post_path(@post.id), class: "icon-link" do %>
+            <i class="fa fa-ellipsis-h"></i>
+        <% end %>
+    </div>
+    <div class= "post-content">
+        <p>
+            <%= @post.content %>
+        </p>
+    </div>
+</div>

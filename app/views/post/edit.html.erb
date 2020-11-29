@@ -1,3 +1,14 @@
-<P>
-    Edit post
-</p>
+
+<div class="post form">
+    <%= form_with(model: @post, url: post_path)  do |f| %>
+        
+        <div class="field">
+            <%= label_tag(:content, "Post Content", class: 'label') %>
+            <%= f.text_area(:content, size: "28x8", class: 'input') %>
+        </div>
+        <div class="field no-shadow text-center">
+            <%= f.submit "Update" , class: 'btn' %>
+        </div>
+
+    <% end %>
+</div>
