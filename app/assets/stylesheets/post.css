@@ -1,0 +1,24 @@
+/* Place all the styles related to the Post controller here.
+They will automatically be included in application.css.
+You can use Sass (SCSS) here: https://sass-lang.com/ */
+
+.posts{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.post{
+    margin-top: 1.5rem
+}
+
+.post-header{
+    font-size: 2em;
+}
+.post-content{
+    font-size: 1.8em;
+}
+
+.post-footer{
+    display: flex;
+}
+

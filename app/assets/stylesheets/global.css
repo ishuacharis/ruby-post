@@ -1,0 +1,19 @@
+*,*::before,*::after{
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 10px;
+}
+
+body{
+    background-color: red;
+    font-size: 62.5%;
+}
+
+.container{
+    width: 100%;
+    max-width: 96em;
+    position: relative;
+    margin: 0 auto;
+}
