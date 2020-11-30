@@ -1,7 +1,11 @@
 
 <div class="post form">
     <%= form_with(model: @post, url: post_path)  do |f| %>
-        
+        <div class="field">
+            <%= label_tag(:content, "Post Title", class: 'label') %>
+            <%= f.text_field(:title, class: 'input') %>
+        </div>
+
         <div class="field">
             <%= label_tag(:content, "Post Content", class: 'label') %>
             <%= f.text_area(:content, size: "28x8", class: 'input') %>

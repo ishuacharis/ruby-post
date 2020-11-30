@@ -2,7 +2,7 @@ class PostController < ApplicationController
 
     # /GET all posts
     def index
-        @posts = Post.all
+        @posts = Post.order(id: :desc)
     end
     
     # /GET a form to create a new post
@@ -47,7 +47,7 @@ class PostController < ApplicationController
 
 
     def post_params
-        params.require(:post).permit(:content)
+        params.require(:post).permit(:content, :title)
     end
 
     private :post_params
