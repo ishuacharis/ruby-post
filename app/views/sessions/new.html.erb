@@ -11,9 +11,12 @@
             <%= f.label(:password, "Password", class: "label") %>
             <%= f.password_field(:password_hash, class: "input") %>
         </div>
-        <div class="field no-shadow">
+        <div class="field no-shadow text-center">
             <%= f.submit("Login", class: "btn") %>
-            
+        </div>
+
+        <div class="field no-shadow text-center sm-font">
+            <%= link_to "Don't have an account ?", users_new_path %>
         </div>
 
     <%  end %>

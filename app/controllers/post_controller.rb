@@ -2,7 +2,11 @@ class PostController < ApplicationController
 
     # /GET all posts
     def index
-        @posts = Post.order(id: :desc)
+        if current_user
+            @posts = User.find_by(id: current_user.id).posts.order(id: :desc)
+        else        
+            @posts  = Post.order(id: :desc).take(1)
+        end
     end
     
     # /GET a form to create a new post

@@ -14,9 +14,12 @@
             <%= f.label(:password, "Password", class: "label") %>
             <%= f.password_field(:password_hash, class: "input") %>
         </div>
-        <div class="field no-shadow">
+        <div class="field no-shadow text-center">
             <%= f.submit("Create", class: "btn") %>
-            
+        </div>
+
+        <div class="field no-shadow text-center sm-font">
+            <%= link_to "Already have an account", sessions_new_path %>
         </div>
 
     <%  end %>
