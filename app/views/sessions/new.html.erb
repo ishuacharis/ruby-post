@@ -1,0 +1,21 @@
+<div class="auth-form">
+
+    <%=  form_with(model: @user, url: sessions_create_path) do |f| %>
+
+        <div class="field">
+            <%= f.label(:email, "Username", class: "label") %>
+            <%= f.email_field(:email, class: "input") %>
+        </div>
+        
+        <div class="field">
+            <%= f.label(:password, "Password", class: "label") %>
+            <%= f.password_field(:password_hash, class: "input") %>
+        </div>
+        <div class="field no-shadow">
+            <%= f.submit("Login", class: "btn") %>
+            
+        </div>
+
+    <%  end %>
+
+</div>

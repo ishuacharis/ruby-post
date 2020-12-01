@@ -1,0 +1,18 @@
+<div class="sidebar">
+    <ul class="nav-links">
+        <%= link_to post_index_path, class: "nav-link" do %>
+            <li class="nav-item">Home</li>
+        <% end %>
+        <%  if current_user %>
+            <%= link_to new_post_path, class: "nav-link" do %>
+                <li class="nav-item">Profile</li>
+            <% end %>
+            <%= link_to new_post_path, class: "nav-link" do %>
+                <li class="nav-item">Create</li>
+            <% end %>
+            <%= link_to sessions_destroy_path, class: "nav-link" do %>
+                <li class="nav-item">Log out</li>
+            <% end %>
+        <% end %>
+    </ul>
+</div>

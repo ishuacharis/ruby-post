@@ -11,7 +11,12 @@
 
   <body id="application">
     <div class="container">
-      <%= yield %>
+      <div class="main">
+        <%= render "shared/sidenav" %>
+        <div class="content">
+          <%= yield %>
+        </div>
+      </div>
     </div>
   </body>
 </html>
