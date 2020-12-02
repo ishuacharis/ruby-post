@@ -1,6 +1,8 @@
 class User < ApplicationRecord
     has_many :posts, dependent: :destroy
-
+    validates :username , :uniqueness => true, :presence => true
+    validates :email , :uniqueness => true , :presence => true
+    validates :password_hash , :presence => true
     before_save :encrypt_password
 
     def password
@@ -12,11 +14,11 @@ class User < ApplicationRecord
         self.password_hash = @password
     end
 
-    def self.authenticate(email, password)
+    def self.authenticate(args)
 
-        user = find_by(email: email)
+        user = find_by(email: args[:email])
         
-        if user && (user.password == password)
+        if user && (user.password == args[:password])
             user
         else
             nil
@@ -29,6 +31,7 @@ class User < ApplicationRecord
             self.password = password_hash
         end
     end
+
 
     private :encrypt_password
 

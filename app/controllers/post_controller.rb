@@ -16,7 +16,9 @@ class PostController < ApplicationController
 
     # /POST create a new post
     def create
-        @post = Post.new(post_params)
+        #Post.new(post_params,)
+        @post = current_user.posts.create(post_params)
+        
         if @post.save
             redirect_to action: :index
         else
@@ -49,7 +51,7 @@ class PostController < ApplicationController
     def destroy
     end
 
-
+    # allowed or whitelisted params
     def post_params
         params.require(:post).permit(:content, :title)
     end

@@ -1,6 +1,6 @@
 <div class="auth-form">
 
-    <%=  form_with(model: @user, url: sessions_create_path) do |f| %>
+    <%=  form_with(model: @user, local: true, url: sessions_path,) do |f| %>
 
         <div class="field">
             <%= f.label(:email, "Username", class: "label") %>
@@ -16,7 +16,7 @@
         </div>
 
         <div class="field no-shadow text-center sm-font">
-            <%= link_to "Don't have an account ?", users_new_path %>
+            <%= link_to "Don't have an account ?", new_user_path %>
         </div>
 
     <%  end %>

@@ -8,11 +8,9 @@ class UsersController < ApplicationController
 
     if @user.save
       redirect_to root_path,  :notice => "Account created"
-
       else
         render :new
     end
-
 
   end
 

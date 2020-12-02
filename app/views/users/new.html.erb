@@ -1,25 +1,40 @@
 <div class="auth-form">
 
-    <%=  form_with(model: @user, url: users_create_path) do |f| %>
+    <%=  form_with(model: @user, local: true , url: users_path) do |f| %>
 
         <div class="field">
             <%= f.label(:username, "Username", class: "label") %>
             <%= f.text_field(:username, class: "input") %>
+             <% if f.object.errors.any? &&  f.object.errors[:username] %>
+                <div class="error">
+                   <%= render :partial => "shared/error", :locals => {:errors => f.object.errors[:username] } %>
+                </div>
+            <% end %>
         </div>
         <div class="field">
             <%= f.label(:email, "Email Address", class: "label") %>
             <%= f.email_field(:email, class: "input") %>
+             <% if f.object.errors.any? &&  f.object.errors[:email] %>
+                <div class="error">
+                   <%= render :partial => "shared/error", :locals => {:errors => f.object.errors[:email] } %>
+                </div>
+            <% end %>
         </div>
         <div class="field">
             <%= f.label(:password, "Password", class: "label") %>
             <%= f.password_field(:password_hash, class: "input") %>
+            <% if f.object.errors.any? &&  f.object.errors[:password_hash] %>
+                <div class="error">
+                   <%= render :partial => "shared/error", :locals => {:errors => f.object.errors[:password_hash] } %>
+                </div>
+            <% end %>
         </div>
         <div class="field no-shadow text-center">
             <%= f.submit("Create", class: "btn") %>
         </div>
 
         <div class="field no-shadow text-center sm-font">
-            <%= link_to "Already have an account", sessions_new_path %>
+            <%= link_to "Already have an account", new_session_path %>
         </div>
 
     <%  end %>
