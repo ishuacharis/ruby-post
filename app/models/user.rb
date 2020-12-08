@@ -1,8 +1,10 @@
 class User < ApplicationRecord
     has_many :posts, dependent: :destroy
-    validates :username , :uniqueness => true, :presence => true
-    validates :email , :uniqueness => true , :presence => true
-    validates :password_hash , :presence => true
+    validates :username , :uniqueness => {
+        message: "%{value} has been taken"
+    }, :presence => { message: "Field cannot be blank" }
+    validates :email , :uniqueness => true , :presence => { message: "Field cannot be blank" }
+    validates :password_hash , :presence => { message: "Field cannot be blank" }
     before_save :encrypt_password
 
     def password
@@ -31,7 +33,6 @@ class User < ApplicationRecord
             self.password = password_hash
         end
     end
-
 
     private :encrypt_password
 

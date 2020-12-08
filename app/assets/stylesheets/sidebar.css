@@ -1,0 +1,21 @@
+/*  nav links */
+
+.nav-links {
+    padding: 0;
+ }
+ 
+ .nav-link{
+     display: inline-block;
+     width: 100%;
+     font-size: 2.5em;
+     margin-bottom: 1.5em;   
+ }
+ 
+ .nav-item {
+     color: rgb(85, 77, 77);
+     display: inline;
+ }
+ 
+ .nav-link:hover .nav-item {
+     background-color: yellow;
+ }

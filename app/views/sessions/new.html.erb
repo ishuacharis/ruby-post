@@ -1,4 +1,10 @@
 <div class="auth-form">
+    <%  if flash[:notice] %>
+        <%=  render :partial => 'shared/flash' %>
+    <% end %>
+    <%  if flash[:alert] %>
+        <%=  render :partial => 'shared/flash' %>
+    <% end %>
 
     <%=  form_with(model: @user, local: true, url: sessions_path,) do |f| %>
 

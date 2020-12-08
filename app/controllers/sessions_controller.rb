@@ -19,12 +19,13 @@ class SessionsController < ApplicationController
       redirect_to root_path, :notice => "Successfully logged in"
       
     else
-      flash.now.alert  = "Invalid email or password"
-      render :new
+      flash.now[:alert]  = "Invalid email or password"
+      redirect_to action: :new
     end
   end
 
   def logout
+    session.delete(:current_user)
     session[:user_id] = nil
     redirect_to root_path, :notice => "Successfully logged out"
   end

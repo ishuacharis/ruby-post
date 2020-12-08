@@ -1,0 +1,24 @@
+<div class="post" >
+    <div class="post-header">
+        <div class="info">
+            <div class="details">
+                <span class="author"> <%= post.reload_user.username  %> </span> &nbsp;
+                <span class="dot"></span> &nbsp;
+                <span class="duration"> 
+                    <%= time_ago_in_words(post.created_at) %> 
+                </span>
+            </div>
+            <% if current_user == post.user_id %>
+                <%= link_to edit_post_path(post), class: "icon-link" do %>
+                    <i class="fa fa-ellipsis-h"></i>
+                <% end %>
+            <% end %>
+        </div>
+        <div class="post-title">
+            <h6><%= post.title  %></h6>
+        </div>
+    </div>
+    <div class= "post-content">
+        <%= post.content %>
+    </div>
+</div>

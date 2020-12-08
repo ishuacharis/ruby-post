@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
     helper_method :current_user
-
+    add_flash_types :error
 
     def current_user
         if session[:user_id]

@@ -1,5 +1,7 @@
 <div class="auth-form">
-
+     <% if flash[:error]  %>
+        <%= render :partial => 'shared/flash' %>
+    <% end %>
     <%=  form_with(model: @user, local: true , url: users_path) do |f| %>
 
         <div class="field">
@@ -30,7 +32,7 @@
             <% end %>
         </div>
         <div class="field no-shadow text-center">
-            <%= f.submit("Create", class: "btn") %>
+            <%= f.submit("Create", class: "btn btn-large full-width") %>
         </div>
 
         <div class="field no-shadow text-center sm-font">

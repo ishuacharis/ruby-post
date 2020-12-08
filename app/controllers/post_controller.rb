@@ -22,7 +22,8 @@ class PostController < ApplicationController
         if @post.save
             redirect_to action: :index
         else
-            render :new
+            flash.now[:alert] = "Unable to create new post"
+            redirect_to action: :new
         end
     end
 

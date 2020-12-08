@@ -40,32 +40,82 @@ h1,h2,h3,h4,h5,h6{
 .content {
     width: 80%;
 }
-/*  nav links */
 
-.nav-links {
-   padding: 0;
-}
-
-.nav-link{
-    display: inline-block;
-    width: 100%;
-    font-size: 2.5em;
-    margin-bottom: 1.5em;   
-}
-
-.nav-item {
-    color: rgb(85, 77, 77);
-    display: inline;
-}
-
-.nav-link:hover .nav-item {
-    background-color: yellow;
-}
-
-.sm-font{
-    font-size: 2.8em;
-}
 .error{
     color: red;
     margin: 0.8em 0;
+}
+
+.field{
+    margin-top: 1.5em;
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.3);
+    border-radius: 5px;
+    padding: 0.35em;
+}
+.label {
+    position: relative;
+    display: block;
+    margin-bottom: 0.5em;
+    font-size: 1.8rem;
+    width: 100%;
+}
+.input{
+    width: 100%;
+}
+.no-shadow{
+    box-shadow: none;
+ }
+ .text-center{
+     text-align: center;
+ }
+ .icon{
+     cursor: pointer;
+ }
+ /* button variants */
+ .btn{
+    display: inline-block;
+    background-color: blue;
+    padding: 5px 30px;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-size: 3em;
+    cursor: pointer;
+}
+/*button color */
+.btn-blue {
+    background-color: blue;
+}
+.btn-warning {
+    background-color:turquoise;
+}
+.btn-danger {
+    background-color: red;
+}
+
+/*button sizes */
+
+.btn-large{
+    padding: 10px 40px;
+}
+
+/* font modifier */
+.xs-font{
+    font-size: 2em;
+}
+.sm-font{
+    font-size: 2.8em;
+}
+.lg-font {
+    font-size: 3.5em;
+}
+
+.xl-font {
+    font-size: 4.5em;
+}
+
+/*width */
+
+.full-width {
+    width: 100%;
 }
