@@ -8,8 +8,9 @@
                     <%= time_ago_in_words(post.created_at) %> 
                 </span>
             </div>
-            <% if current_user == post.user_id %>
-                <%= link_to edit_post_path(post), class: "icon-link" do %>
+            <% if current_user.id == post.user_id %>
+                <%#=  s%>
+                <%= link_to post_path(username,post), class: "icon-link" do %>
                     <i class="fa fa-ellipsis-h"></i>
                 <% end %>
             <% end %>

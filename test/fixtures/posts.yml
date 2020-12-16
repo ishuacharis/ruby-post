@@ -1,7 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  content: MyText
+# post_one:
+#   title: title1
+#   content: content1
 
-two:
-  content: MyText
+# post_two:
+#   title: title2
+#   content: content2
+
+# post_three:
+#   title: title3
+#   content: content3

@@ -2,7 +2,10 @@ class SessionsController < ApplicationController
   
   def new
     if current_user
-      redirect_to post_index_path
+      @user = current_user.username
+      redirect_to post_index_path(@user)
+      #post_path(@user)
+      #
     else
       @user  = User.new
     end

@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    helper_method :current_user
+    helper_method :current_user, :username
     add_flash_types :error
 
     def current_user
@@ -8,5 +8,9 @@ class ApplicationController < ActionController::Base
         else
             @current_user = nil
         end
+    end
+
+    def username
+        current_user.username
     end
 end

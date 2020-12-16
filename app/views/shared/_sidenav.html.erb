@@ -1,13 +1,13 @@
 <div class="sidebar">
     <ul class="nav-links">
-        <%= link_to post_index_path, class: "nav-link" do %>
-            <li class="nav-item">Home</li>
-        <% end %>
         <%  if current_user %>
-            <%= link_to new_post_path, class: "nav-link" do %>
-                <li class="nav-item">Profile</li>
+            <%= link_to post_index_path(username), class: "nav-link" do %>
+                <li class="nav-item">Home</li>
             <% end %>
-            <%= link_to new_post_path, class: "nav-link" do %>
+            <%= link_to new_post_path(username), class: "nav-link" do %>
+                <li class="nav-item"><%= current_user.username %></li>
+            <% end %>
+            <%= link_to new_post_path(username), class: "nav-link" do %>
                 <li class="nav-item">Create</li>
             <% end %>
             <%= link_to logout_sessions_path, class: "nav-link" do %>

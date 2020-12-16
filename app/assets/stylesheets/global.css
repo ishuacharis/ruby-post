@@ -1,17 +1,31 @@
+/*google fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+
+/*
+#9D3131
+#661212
+*/
 *,*::before,*::after{
     box-sizing: border-box;
 }
 
 html{
     font-size: 10px;
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 body{
-    background-color: ccc;
+    background-color: #FDFDFD;
     font-size: 62.5%;
 }
 a {
     text-decoration: none;
+    transition: all 1.2s ease-in-out;
+    color: #A4A4A4;
+}
+a:hover{
+    color: #8C8989;
+    text-decoration: underline;
 }
 ul {
     list-style: none;
@@ -21,6 +35,7 @@ ul {
 h1,h2,h3,h4,h5,h6{
     padding: 0;
     margin: 0;
+    font-weight: 300;
 }
 .container{
     width: 100%;

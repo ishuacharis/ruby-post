@@ -5,5 +5,10 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create,] do
     get 'logout' , on: :collection
   end
-  resources :post
+  scope '/:username' do
+    resources :post 
+  end
+
+  # resources :post
+  
 end
