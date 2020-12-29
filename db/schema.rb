@@ -10,10 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_29_014944) do
+ActiveRecord::Schema.define(version: 2020_12_29_030257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "locations", force: :cascade do |t|
+    t.string "name", default: "nigeria", null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.text "content"
@@ -32,8 +36,9 @@ ActiveRecord::Schema.define(version: 2020_12_29_014944) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "fullname", default: "fullname", null: false
     t.text "bio", default: "bio", null: false
-    t.integer "location", default: 1, null: false
+    t.integer "location_id", default: 1, null: false
   end
 
   add_foreign_key "posts", "users"
+  add_foreign_key "users", "locations"
 end
