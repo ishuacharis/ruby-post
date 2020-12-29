@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(new_user_params)
 
     if @user.save
       redirect_to root_path,  :notice => "Account created"
@@ -15,10 +15,28 @@ class UsersController < ApplicationController
 
   end
 
+  def edit
+    @user  =  User.find_by_username(params[:id])
+  end
 
-  def user_params
+  def update
+    @user  =  User.find_by_username(params[:id])
+
+    if @user.update(update_user_params)
+      redirect_to root_path
+    else
+      flash.now[:error] = "Unable to update profile"
+      render :edit
+    end
+  end
+
+
+  def new_user_params
     params.require(:user).permit(:username, :email, :password_hash)
   end
 
-  private :user_params
+  def update_user_params
+    params.require(:user).permit(:fullname, :location, :bio)
+  end
+  private :user_params, :update_user_params
 end
