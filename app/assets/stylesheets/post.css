@@ -68,3 +68,10 @@ You can use Sass (SCSS) here: https://sass-lang.com/ */
     display: grid;
     grid-template-columns: 1fr;
 }
+
+.post-form{
+    margin-top: 1.8em;
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.3);
+    border-radius: 5px;
+    padding: 0.5em 1.5em;
+}

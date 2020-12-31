@@ -1,13 +1,17 @@
-<div class="auth-form">
+<div class="auth-form"> 
     <%=  form_with(model: @user, local: true , url: user_path(username,)) do |f| %>
 
-        <% if @user.avatar %>
+        
             <div class="avatar">
                 <div class="img">
-                    <img src="<%= url_for(@user.avatar) %>">
+                    <% if @user.avatar.attached? %>
+                        <img src="<%= url_for(@user.avatar) %>">
+                    <% else %>
+                        <%= image_tag  "profile.pnp" %>
+                    <% end %>
                 </div>
             </div>
-        <% end %>
+        
         <div class="field">
             <%= f.file_field(:avatar,) %>
         </div>

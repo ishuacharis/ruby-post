@@ -2,7 +2,11 @@
     <div class="post-sidebar">
         <%= link_to  "#", class: "post_avatar-container" do %>
             <div class="post-avatar">
-                <img src="<%= url_for(post.reload_user.avatar) %>">
+                <% if  post.reload_user.avatar.attached? %>
+                    <img src="<%= url_for(post.reload_user.avatar) %>">
+                <% else %>
+                    <%= image_tag  "profile.png" %>
+                <% end %>
             </div>
         <% end %>
     </div>

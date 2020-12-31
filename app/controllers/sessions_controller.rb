@@ -18,11 +18,13 @@ class SessionsController < ApplicationController
     )
     
     if user
+      puts "foound"
       session[:user_id] = user.id
       redirect_to root_path, :notice => "Successfully logged in"
       
     else
-      flash.now[:alert]  = "Invalid email or password"
+      puts "not found"
+      flash[:alert]  = "Invalid email or password"
       redirect_to action: :new
     end
   end
