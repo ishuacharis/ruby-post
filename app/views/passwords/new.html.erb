@@ -1,0 +1,19 @@
+<div class="auth-form">
+    <% if flash[:error]  %>
+        <%= render :partial => 'shared/flash' %>
+    <% end %>
+    <% if flash[:notice]  %>
+        <%= render :partial => 'shared/flash' %>
+    <% end %>
+    <%= form_with(model: @password, local: true, url: password_create_path)  do |f| %>
+        
+        <div class="field">
+            <%= f.label(:email, "Email", class: "label") %>
+            <%= f.email_field(:email, class: "input") %>
+        </div>
+        <div class="field no-shadow text-center">
+            <%= f.submit("Search", class: "btn") %>
+        </div>
+
+    <% end %>
+</div>

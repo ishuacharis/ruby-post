@@ -5,9 +5,7 @@ class User < ApplicationRecord
     validates :username , :uniqueness => {message: "%{value} has been taken"}, :presence => { message: "Field cannot be blank" }
     validates :email ,  :uniqueness => true , :presence => { message: "Field cannot be blank" }
     validates :password_hash , :presence => { message: "Field cannot be blank" }
-    before_create :encrypt_password
-
-    #,  
+    before_save :encrypt_password,  if: :password_hash_changed?  
     def password
         @password ||= BCrypt::Password.new(password_hash)
     end
@@ -30,7 +28,6 @@ class User < ApplicationRecord
 
     def encrypt_password
         if password_hash.present?
-            puts "encrypted before saving"
             self.password = password_hash
         end
     end

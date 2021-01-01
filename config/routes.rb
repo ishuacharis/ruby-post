@@ -9,12 +9,12 @@ Rails.application.routes.draw do
     resources :post 
   end
   scope 'settings' do
-    get  'password/forgot/new', to: 'password#new'
-    post 'password/create', to: 'password#create'
-    get  'password/reset/new', to: 'password#reset_password'
-    post 'password/reset', to: 'password#reset'
-    get  'password/update/new', to: 'password#update_password'
-    patch 'password/update', to: 'password#update'
+    get  'password/forgot/new', to: 'passwords#new'
+    post 'password/create', to: 'passwords#create'
+    get  'password/reset/new', to: 'passwords#reset_password'
+    post 'password/reset', to: 'passwords#reset'
+    get  'password/update/new', to: 'passwords#update_password'
+    patch 'password/update', to: 'passwords#update'
   end
 
   # resources :post

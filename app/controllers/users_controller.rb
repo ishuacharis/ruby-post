@@ -21,9 +21,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user  =  User.find_by_username(params[:id])
+    @user =  User.find_by_username(params[:id])
 
-    @user.avatar.attach(params[:avatar])
+    if params[:avatar].present?
+      @user.avatar.attach(params[:avatar])
+    end 
 
     if @user.update(update_user_params)
       redirect_to root_path
