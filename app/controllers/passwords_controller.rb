@@ -66,5 +66,17 @@ class PasswordsController < ApplicationController
     end
 
     def update
+        password = params[:password]
+        if !password.present?
+            redirect_to password_update_new_path, :notice => "Password not present"
+        end
+        user = User.find_by(email: current_user.email)
+        if user.exist?
+            user.password_hash = password
+            user.save
+            redirect_to root_path, :notice => "password updated"
+        else
+            redirect_to update_password_new_path, :error => "Please check your email"
+        end
     end
 end

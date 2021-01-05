@@ -39,3 +39,7 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# Ignore gmail configuration
+/config/local_env.yml
+/config/env.rb

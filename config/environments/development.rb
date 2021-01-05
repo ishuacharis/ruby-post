@@ -40,13 +40,21 @@ Rails.application.configure do
   # Action mailer config for gmail
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-  address:              'smtp.gmail.com',
-  port:                 587,
-  domain:               'example.com',
-  user_name:            '<username>',
-  password:             '<password>',
-  authentication:       'plain',
-  enable_starttls_auto: true }
+    :user_name => ENV['MAIL_USERNAME'],
+    :password => ENV['MAIL_PASSWORD'],
+    :address => 'smtp.mailtrap.io',
+    :domain => 'smtp.mailtrap.io',
+    :port => '465',
+    :authentication => :cram_md5
+  }
+  # config.action_mailer.smtp_settings = {
+  # address:              'smtp.gmail.com',
+  # port:                 587,
+  # domain:               'example.com',
+  # user_name:            '<username>',
+  # password:             '<password>',
+  # authentication:       'plain',
+  # enable_starttls_auto: true }
 
   config.action_mailer.perform_caching = false
 
