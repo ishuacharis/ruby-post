@@ -22,7 +22,7 @@ export default class extends Controller {
 
   validateForm(form) {
     let isValid =  true;
-    let requiredFieldSelectors =  'input[type="email"]:required, input[type="password_hash"]:required';
+    let requiredFieldSelectors =  'input[type="email"]:required, input[type="password"]:required';
     let requiredFields  = form.querySelectorAll(requiredFieldSelectors);
     requiredFields.forEach((field) => {
       if(!field.disabled && !field.value.trim()){
@@ -47,7 +47,7 @@ export default class extends Controller {
 
     // })
 
-    return false
+    return isValid
   }
   
   
