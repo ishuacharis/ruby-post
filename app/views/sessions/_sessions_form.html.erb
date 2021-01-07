@@ -1,0 +1,22 @@
+<%= 
+    form_with(model: @user, local: false, url: sessions_path, data: {action: "ajax:beforeSend->#{controller}#beforeSubmit"}) do |f| 
+%>
+
+    <div class="field">
+        <%= f.label(:email, "Username", class: "label") %>
+        <%= f.email_field(:email, class: "input") %>
+    </div>
+    
+    <div class="field">
+        <%= f.label(:password, "Password", class: "label") %>
+        <%= f.password_field(:password_hash, class: "input") %>
+    </div>
+    <div class="field no-shadow text-center">
+        <%= f.submit("Login", class: "btn") %>
+    </div>
+
+    <div class="field no-shadow text-center sm-font">
+        <%= link_to "Sign up", new_user_path %> .
+        <%= link_to "Forgot password?", password_forgot_new_path %>
+    </div>
+<%  end %>
