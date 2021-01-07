@@ -1,4 +1,11 @@
-<%=  form_with(model: @user, local: true , url: users_path) do |f| %>
+<%=  form_with(
+    model: @user, local: false , 
+    url: users_path,
+    data: {
+        target: "users.form",
+        action: "ajax:beforeSend->#{controller}#beforeSubmit"
+    }
+    ) do |f| %>
 
     <div class="field">
         <%= f.label(:username, "Username", class: "label") %>
