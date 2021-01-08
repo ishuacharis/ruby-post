@@ -10,8 +10,7 @@ class UsersController < ApplicationController
       UserMailer.with(user: user).welcome_email.deliver_now
       redirect_to root_path,  :notice => "Account created"
       else
-        flash.now[:error] = "Unable to create new account"
-        render :new
+        redirect_to new_user_path, flash: {error:  @user.errors}
     end
 
   end
