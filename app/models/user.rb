@@ -3,7 +3,7 @@ class User < ApplicationRecord
     belongs_to :location
     has_one_attached :avatar
     validates :username , :uniqueness => {message: "%{value} has been taken"}, :presence => { message: "Field cannot be blank" }
-    validates :email ,  :uniqueness => true , :presence => { message: "Field cannot be blank" }
+    validates :email ,  :uniqueness => {message: "%{value} has been taken"} , :presence => { message: "Field cannot be blank" }
     validates :password_hash , :presence => { message: "Field cannot be blank" }
     before_save :encrypt_password,  if: :password_hash_changed?  
     def password
