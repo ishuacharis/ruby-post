@@ -43,6 +43,9 @@ img {
     border-radius: inherit;
     object-fit: cover;
 }
+input:disabled {
+    background-color: red;
+}
 .container{
     width: 100%;
     max-width: 96em;

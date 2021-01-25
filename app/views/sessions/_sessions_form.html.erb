@@ -13,7 +13,7 @@
 
     <div class="field">
         <%= f.label(:email, "Username", class: "label") %>
-        <%= f.email_field(:email, class: "input", required: true) %>
+        <%= f.email_field(:email, class: "input", required: true,) %>
     </div>
     
     <div class="field">
@@ -21,7 +21,7 @@
         <%= f.password_field(:password_hash, class: "input",required: true) %>
     </div>
     <div class="field no-shadow text-center">
-        <%= f.submit("Login", class: "btn") %>
+        <%= f.submit("Login", class: "btn", data: {target: "sessions.button"}) %>
     </div>
 
     <div class="field no-shadow text-center sm-font">

@@ -1,36 +1,38 @@
 <%=  form_with(
     model: @user, local: false , 
     url: users_path,
-    data: {
+    html:  {novalidate: true},
+     data: {
         target: "users.form",
         action: "ajax:beforeSend->#{controller}#beforeSubmit"
     }
+   
     ) do |f| %>
 
     <div class="field">
         <%= f.label(:username, "Username", class: "label") %>
-        <%= f.text_field(:username, class: "input") %>
-            <% if f.object.errors.any? &&  f.object.errors[:username] %>
+        <%= f.text_field(:username, class: "input", required: true) %>
+        <% if flash[:error] && flash[:error]["username"] %>
             <div class="error">
-                <%= render :partial => "shared/error", :locals => {:errors => f.object.errors[:username] } %>
+                <%= render :partial => "shared/error", :locals => {:errors =>  flash[:error]["username"] } %>
             </div>
         <% end %>
     </div>
     <div class="field">
         <%= f.label(:email, "Email Address", class: "label") %>
-        <%= f.email_field(:email, class: "input") %>
-            <% if f.object.errors.any? &&  f.object.errors[:email] %>
+        <%= f.email_field(:email, class: "input", required: true) %>
+            <% if flash[:error] &&  flash[:error]['email'] %>
             <div class="error">
-                <%= render :partial => "shared/error", :locals => {:errors => f.object.errors[:email] } %>
+                <%= render :partial => "shared/error", :locals => {:errors => flash[:error]['email'] } %>
             </div>
         <% end %>
     </div>
     <div class="field">
         <%= f.label(:password, "Password", class: "label") %>
-        <%= f.password_field(:password_hash, class: "input") %>
-        <% if f.object.errors.any? &&  f.object.errors[:password_hash] %>
+        <%= f.password_field(:password_hash, class: "input", required: true) %>
+        <% if flash[:error] &&  flash[:error]['password_hash'] %>
             <div class="error">
-                <%= render :partial => "shared/error", :locals => {:errors => f.object.errors[:password_hash] } %>
+                <%= render :partial => "shared/error", :locals => {:errors => flash[:error]['password_hash'] } %>
             </div>
         <% end %>
     </div>
