@@ -1,4 +1,4 @@
-class UserMailer < ApplicationMailer
+class WelcomeMailer < ApplicationMailer
     default from: 'notification@localhost.co.uk'
 
     def welcome_email

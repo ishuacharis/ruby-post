@@ -1,5 +1,5 @@
 class NewUserVerificationMailer < ApplicationMailer
-    default from: 'ruby@ruby.com'
+    default from: 'ruby@rubypost.com'
 
 
     def verification_email
