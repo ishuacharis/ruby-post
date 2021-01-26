@@ -1,13 +1,17 @@
-<%= 
-    form_with(
-    model: @user, 
-    local: false, 
-    url: sessions_path, 
-    html: {novalidate: true},
+<%
+=begin%>
+ html: {novalidate: true},
     data: {
             target: "sessions.form",
             action: "ajax:beforeSend->#{controller}#beforeSubmit"
-        }
+        } 
+<%
+=end%>
+<%= 
+    form_with(
+    model: @user, 
+    local: true, 
+    url: sessions_path, 
     ) do |f| 
 %>
 
