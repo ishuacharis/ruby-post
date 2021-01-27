@@ -7,7 +7,6 @@ class UsersController < ApplicationController
     @user = User.new(new_user_params)
 
     if @user.save
-      WelcomeMailer.with(user: user).welcome_email.deliver_now
       redirect_to root_path,  :notice => "Account created"
       else
         redirect_to new_user_path, flash: {error:  @user.errors}
