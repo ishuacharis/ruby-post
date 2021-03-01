@@ -20,7 +20,7 @@ class User < ApplicationRecord
             self.password = password_hash
         end
     end
-    
+
     def self.authenticate(args)
 
         user = find_by(email: args[:email])
@@ -32,6 +32,9 @@ class User < ApplicationRecord
         end
     end
 
+    def all_posts
+        posts.get_all_posts
+    end
 
     private :encrypt_password
 
