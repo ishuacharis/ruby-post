@@ -3,7 +3,8 @@ class PostController < ApplicationController
     # /GET all posts
     def index
         if current_user
-            @posts = User.find_by(id: current_user.id).posts.order(id: :desc)
+            @user = User.find_by(id: current_user.id)
+            @posts = @user.posts.order(id: :desc)
         else        
             @posts  = Post.order(id: :desc).take(1)
         end
