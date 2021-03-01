@@ -14,7 +14,13 @@ class User < ApplicationRecord
         @password =  BCrypt::Password.create(new_password)
         self.password_hash = @password
     end
-
+    
+    def encrypt_password
+        if password_hash.present?
+            self.password = password_hash
+        end
+    end
+    
     def self.authenticate(args)
 
         user = find_by(email: args[:email])
@@ -26,11 +32,6 @@ class User < ApplicationRecord
         end
     end
 
-    def encrypt_password
-        if password_hash.present?
-            self.password = password_hash
-        end
-    end
 
     private :encrypt_password
 
