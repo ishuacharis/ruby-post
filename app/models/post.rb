@@ -11,4 +11,8 @@ class Post < ApplicationRecord
     def username
         user.username
     end
+
+    def self.get_all_posts
+        order(id: :desc)
+    end
 end
