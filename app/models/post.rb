@@ -4,4 +4,11 @@ class Post < ApplicationRecord
     #validates_associated :user
     validates :title, :presence => { message: "Field cannot be blank" }
     validates :content, :presence => { message: "Field cannot be blank" }
+
+    # get username from User
+    # no params
+    # return username | string
+    def username
+        user.username
+    end
 end
