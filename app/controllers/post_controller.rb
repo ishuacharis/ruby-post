@@ -4,7 +4,7 @@ class PostController < ApplicationController
     def index
         if current_user
             @user = User.find_by(id: current_user.id)
-            @posts = @user.posts.order(id: :desc)
+            @posts = @user.all_posts
         else        
             @posts  = Post.order(id: :desc).take(1)
         end
@@ -17,7 +17,6 @@ class PostController < ApplicationController
 
     # /POST create a new post
     def create
-        #Post.new(post_params,)
         @post = current_user.posts.create(post_params)
         
         if @post.save
